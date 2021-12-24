@@ -4,14 +4,20 @@ window.wakeUp = function () {
 
 import jsBridge from "../lib";
 
-jsBridge.call();
+const bridge = jsBridge.create({
+  nativeApiScope: "Dk",
+  log: true,
+});
 
-jsBridge.callAsync();
+bridge.call("setBackground", {
+  img: "",
+  color: "",
+});
 
-jsBridge.create();
+// bridge.callAsync();
 
-jsBridge.Native_on();
+// bridge.Native_on();
 
-jsBridge.Native_off();
+// bridge.Native_off();
 
-console.log(jsBridge);
+console.log(bridge);
